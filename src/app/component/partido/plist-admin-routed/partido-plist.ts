@@ -8,12 +8,12 @@ import { BotoneraRpp } from '../../shared/botonera-rpp/botonera-rpp';
 import { TrimPipe } from '../../../pipe/trim-pipe';
 
 @Component({
-  selector: 'app-partido-plist',
+  selector: 'app-partido-plist-admin-routed',
   imports: [Paginacion, BotoneraRpp, TrimPipe],
   templateUrl: './partido-plist.html',
   styleUrl: './partido-plist.css',
 })
-export class PartidoPlist implements OnInit {
+export class PartidoPlistAdminRouted implements OnInit {
 
   oPage = signal<IPage<IPartido> | null>(null);
   nPage = signal<number>(0);
