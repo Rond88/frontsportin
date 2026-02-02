@@ -158,8 +158,10 @@
           </td>
           <td>
             @if (jugador.usuario) {
-            {{ jugador.usuario.nombre }} {{ jugador.usuario.apellido1 }} {{ jugador.usuario.apellido2 | trim: 20 }}
-            {{ ' (' + jugador.usuario.id + ')' }}
+            <a [routerLink]="['/usuario', '/view', jugador.usuario.id]">
+              {{ jugador.usuario.nombre }} {{ jugador.usuario.apellido1 }} {{ jugador.usuario.apellido2 | trim: 20 }}
+              {{ ' (' + jugador.usuario.id + ')' }}
+            </a>
             <!-- Botón alineado a la derecha para filtrar usuario -->
             <a
               class="btn btn-warning btn-sm ms-2 float-end"
@@ -174,8 +176,10 @@
           </td>
           <td>
             @if (jugador.equipo) {
-            {{ jugador.equipo.nombre | trim: 20 }}
-            {{ ' (' + jugador.equipo.id + ')' }}
+            <a [routerLink]="['/equipo', '/view', jugador.equipo.id]">
+              {{ jugador.equipo.nombre | trim: 20 }}
+              {{ ' (' + jugador.equipo.id + ')' }}
+            </a>
             <!-- Botón alineado a la derecha para filtrar equipo -->
             <a
               class="btn btn-warning btn-sm ms-2 float-end"
@@ -188,7 +192,15 @@
             <span class="text-muted">N/A</span>
             }
           </td>
-          <td class="text-center">{{ jugador.pagos || 0 }}</td>
+          <td style="text-align: center">
+            @if (jugador.pagos === 0) {
+              <i class="bi bi-ban" aria-hidden="true"></i> 
+            } @else {
+              <a [routerLink]="['/pago', jugador.id]">
+                {{ jugador.pagos }}
+              </a>
+            }
+          </td>
           <td>
             <div class="d-flex justify-content-center">
               <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
