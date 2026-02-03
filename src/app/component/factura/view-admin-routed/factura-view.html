@@ -5,7 +5,7 @@
       <div class="fw-bold">Detalle de usuario</div>
       <div class="text-muted small">Panel administrativo</div>
     </div>
-    <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2" routerLink="/usuario">
+    <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2" routerLink="/factura">
       <i class="bi bi-arrow-left"></i>
       Volver
     </a>
@@ -41,20 +41,18 @@
         <div class="card border">
           <div class="card-header bg-light small text-uppercase fw-semibold">Información</div>
           <div class="card-body p-2">
-            <div class="fw-bold">
-              {{ oFactura()?.usuario }} {{ oFactura()?.id }} {{ oFactura()?.fecha }}
-            </div>
-            <div class="d-flex flex-wrap gap-2 mt-1">
-              <span class="badge bg-secondary-subtle text-secondary">ID {{ oFactura()?.id }}</span>
-              <span class="badge bg-light text-muted">@{{ oFactura()?.usuario }}</span>
-            </div>
-
-            <div class="mt-2">
-              <div class="row g-1">
-                <div class="col-5 text-muted small text-uppercase">ID</div>
-                <div class="col-7 fw-semibold small">{{ oFactura()?.id }}</div>
-                <div class="col-5 text-muted small text-uppercase">Usuario</div>
-                <div class="col-7 fw-semibold small">{{ oFactura()?.usuario }}</div>
+            <div class="row g-1">
+              <div class="col-5 text-muted small text-uppercase">ID de factura</div>
+              <div class="col-7 fw-semibold small">
+                  {{ oFactura()?.id }}
+              </div>
+              <div class="col-5 text-muted small text-uppercase">Usuario emisor</div>
+              <div class="col-7 fw-semibold small">
+                  {{ oFactura()?.usuario?.username }}
+              </div>
+              <div class="col-5 text-muted small text-uppercase">Fecha de emisión</div>
+              <div class="col-7 fw-semibold small">
+                  {{ oFactura()?.fecha }}
               </div>
             </div>
           </div>
@@ -68,15 +66,15 @@
             <div class="row g-1">
               <div class="col-5 text-muted small text-uppercase">Usuarios</div>
               <div class="col-7 fw-semibold small">
-                  {{ oFactura()?.usuario?.nombre }} ({{ oFactura()?.usuario?.apellido1 }}) ({{ oFactura()?.usuario?.apellido2 }})
+                  {{ oFactura()?.usuario?.nombre }} {{ oFactura()?.usuario?.apellido1 }} {{ oFactura()?.usuario?.apellido2 }}
               </div>
               <div class="col-5 text-muted small text-uppercase">Tipo usuario</div>
               <div class="col-7 fw-semibold small">
-                  {{ oFactura()?.usuario?.tipousuario?.descripcion }} ({{ oFactura()?.usuario?.tipousuario?.id }})
+                  {{ oFactura()?.usuario?.tipousuario?.descripcion }}
               </div>
               <div class="col-5 text-muted small text-uppercase">Rol usuario</div>
               <div class="col-7 fw-semibold small">
-                  {{ oFactura()?.usuario?.rolusuario?.descripcion }} ({{ oFactura()?.usuario?.rolusuario?.id }})
+                  {{ oFactura()?.usuario?.rolusuario?.descripcion }}
               </div>
             </div>
           </div>
@@ -125,26 +123,20 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <div class="border rounded p-2 bg-white">
-                    <div class="text-muted small text-uppercase">Género</div>
-                    <div class="fw-semibold">{{ oFactura()?.usuario?.genero | datetime }}</div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Fecha Alta</div>
-                    <div class="fw-semibold">{{ oFactura()?.usuario?.fechaAlta }}</div>
+                    <div class="fw-semibold">{{ oFactura()?.usuario?.fechaAlta | datetime }}</div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Rol de usuario</div>
-                    <div class="fw-semibold">{{ oFactura()?.usuario?.rolusuario }}</div>
+                    <div class="fw-semibold">{{ oFactura()?.usuario?.rolusuario?.descripcion }}</div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Tipo de usuario</div>
-                    <div class="fw-semibold">{{ oFactura()?.usuario?.tipousuario }}</div>
+                    <div class="fw-semibold">{{ oFactura()?.usuario?.tipousuario?.descripcion }}</div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
@@ -168,7 +160,7 @@
                 <div class="col-sm-6 col-lg-3">
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Club</div>
-                    <div class="fw-semibold">{{ oFactura()?.usuario?.club }}</div>
+                    <div class="fw-semibold">{{ oFactura()?.usuario?.club?.nombre }}</div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
