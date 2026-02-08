@@ -1,8 +1,7 @@
-import { Component, signal, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, signal, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { DatetimePipe } from '../../../pipe/datetime-pipe';
 import { ComentarioartService } from '../../../service/comentarioart';
 import { IComentarioart } from '../../../model/comentarioart';
 import { ComentarioartDetailAdminUnrouted } from '../detail-admin-unrouted/detail-admin-unrouted';
@@ -26,7 +25,6 @@ export class ComentarioartDeleteAdminRouted {
   oComentarioart = signal<IComentarioart | null>(null);
   loading = signal(true);
   error = signal<string | null>(null);
-  id_comentarioart = signal<number>(0);
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -35,7 +33,7 @@ export class ComentarioartDeleteAdminRouted {
   }
 
   doDelete() {
-    this.oComentarioartService.delete(this.id_comentarioart()).subscribe({
+    this.oComentarioartService.delete(this.id).subscribe({
       next: (data: any) => {
         this.snackBar.open('Comentario de artículo eliminado', 'Cerrar', { duration: 4000 });
         console.log('Comentarioart eliminado');
