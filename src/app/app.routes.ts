@@ -50,6 +50,7 @@ import { CategoriaEditAdminRouted } from './component/categoria/edit-admin-route
 import { LigaViewRouted } from './component/liga/view-routed/liga-view';
 import { ComentarioartViewRouted } from './component/comentarioart/view-routed/comentarioart-view';
 import { PagoDeleteAdminRouted } from './component/pago/delete-admin-routed/pago-delete';
+import { TemporadaEditAdminRouted } from './component/temporada/edit-admin-routed/temporada-edit';
 import { PartidoDeleteAdminRouted } from './component/partido/delete-admin-routed/partido-delete';
 import { ClubDeleteAdminRouted } from './component/club/delete-admin-routed/club-delete';
 import { PuntuacionDeleteAdminRouted } from './component/puntuacion/delete-admin-routed/puntuacion-delete';
@@ -71,6 +72,7 @@ export const routes: Routes = [
     { path: 'usuario/view/:id', component: UsuarioViewRouted},
     { path: 'temporada', component: TemporadaPlist },
     { path: 'temporada/club/:id_club', component: TemporadaPlist },
+    { path: 'temporada/edit/:id', component: TemporadaEditAdminRouted },
     { path: 'temporada/view/:id', component: TemporadaViewAdminRouted },
     { path: 'temporada/delete/:id', component: TemporadaDeleteAdminRouted },
     { path: 'liga', component: LigaPlistAdminRouted },
