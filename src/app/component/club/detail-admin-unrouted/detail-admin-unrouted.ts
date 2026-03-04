@@ -22,7 +22,7 @@ export class DetailAdminUnrouted implements OnInit {
   loading = signal(true);
   error = signal<string | null>(null);
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.load(this.id());
   }
 

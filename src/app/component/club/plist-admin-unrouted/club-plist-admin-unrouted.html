@@ -23,15 +23,15 @@
       >
       </app-paginacion>
 
-  @if (!isDialogMode()) {
-    <div class="d-flex justify-content-center my-2">
-      <a class="btn btn-primary" [routerLink]="['/club/new']" role="button">
-        <i class="bi bi-plus-circle" aria-hidden="true"></i> Nuevo club
-      </a>
-    </div>
-    }
+      @if (!isDialogMode()) {
+        <div class="d-flex justify-content-center my-2">
+          <a class="btn btn-primary" [routerLink]="['/club/new']" role="button">
+            <i class="bi bi-plus-circle" aria-hidden="true"></i> Nuevo club
+          </a>
+        </div>
+      }
 
-    <app-botonera-rpp [numRpp]="numRpp()" (rppChange)="onRppChange($event)"> </app-botonera-rpp>
+      <app-botonera-rpp [numRpp]="numRpp()" (rppChange)="onRppChange($event)"> </app-botonera-rpp>
     </div>
   }
 
@@ -196,7 +196,11 @@
                 </div>
               } @else {
                 <div class="d-flex justify-content-center">
-                  <app-botonera-actions-plist [id]="oClub.id" strEntity="club" [showMapa]="true"></app-botonera-actions-plist>
+                  <app-botonera-actions-plist
+                    [id]="oClub.id"
+                    strEntity="club"
+                    [showMapa]="true"
+                  ></app-botonera-actions-plist>
                 </div>
               }
             </td>

@@ -76,7 +76,9 @@ export class ClubFormUnrouted implements OnInit {
 
     if (this.clubForm.invalid) {
       this.error.set('Por favor, complete todos los campos correctamente');
-      this.snackBar.open('Por favor, complete todos los campos correctamente', 'Cerrar', { duration: 4000 });
+      this.snackBar.open('Por favor, complete todos los campos correctamente', 'Cerrar', {
+        duration: 4000,
+      });
       this.clubForm.markAllAsTouched();
       return;
     }

@@ -8,9 +8,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './botonera-actions-plist.css',
 })
 export class BotoneraActionsPlist {
-
   @Input() id: number = 0;
   @Input() strEntity: string = '';
   @Input() showMapa: boolean = false;
-
 }

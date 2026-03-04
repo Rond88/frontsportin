@@ -4,5 +4,11 @@
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
 @import 'leaflet/dist/leaflet.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

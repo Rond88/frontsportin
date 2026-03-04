@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, inject, signal, effect } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  inject,
+  signal,
+  effect,
+} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -14,7 +23,7 @@ import { ILiga } from '../../../model/liga';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './partido-form.html',
-  styleUrls: ['./partido-form.css']
+  styleUrls: ['./partido-form.css'],
 })
 export class PartidoFormAdminUnrouted implements OnInit {
   @Input() partido: IPartido | null = null;
@@ -135,14 +144,24 @@ export class PartidoFormAdminUnrouted implements OnInit {
     }
   }
 
-  get rival() { return this.partidoForm.get('rival'); }
-  get id_liga() { return this.partidoForm.get('id_liga'); }
-  get local() { return this.partidoForm.get('local'); }
-  get resultado() { return this.partidoForm.get('resultado'); }
+  get rival() {
+    return this.partidoForm.get('rival');
+  }
+  get id_liga() {
+    return this.partidoForm.get('id_liga');
+  }
+  get local() {
+    return this.partidoForm.get('local');
+  }
+  get resultado() {
+    return this.partidoForm.get('resultado');
+  }
 
   onSubmit(): void {
     if (this.partidoForm.invalid) {
-      this.snackBar.open('Por favor, complete todos los campos correctamente', 'Cerrar', { duration: 4000 });
+      this.snackBar.open('Por favor, complete todos los campos correctamente', 'Cerrar', {
+        duration: 4000,
+      });
       return;
     }
 
@@ -170,7 +189,7 @@ export class PartidoFormAdminUnrouted implements OnInit {
           this.snackBar.open('Error actualizando el partido', 'Cerrar', { duration: 4000 });
           console.error(err);
           this.submitting.set(false);
-        }
+        },
       });
     } else {
       this.oPartidoService.create(partidoData).subscribe({
@@ -184,10 +203,12 @@ export class PartidoFormAdminUnrouted implements OnInit {
           this.snackBar.open('Error creando el partido', 'Cerrar', { duration: 4000 });
           console.error(err);
           this.submitting.set(false);
-        }
+        },
       });
     }
   }
 
-  onCancel(): void { this.formCancel.emit(); }
+  onCancel(): void {
+    this.formCancel.emit();
+  }
 }

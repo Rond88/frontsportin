@@ -6,7 +6,6 @@ import { PartidoService } from '../../../service/partido';
 import { IPartido } from '../../../model/partido';
 import { MapaComponent } from '../../shared/mapa/mapa';
 
-
 @Component({
   selector: 'app-partido-detail-unrouted',
   imports: [CommonModule, RouterLink, MapaComponent],
@@ -14,7 +13,6 @@ import { MapaComponent } from '../../shared/mapa/mapa';
   styleUrl: './partido-detail.css',
 })
 export class PartidoDetailAdminUnrouted implements OnInit {
-
   @Input() id: Signal<number> = signal(0);
   private oPartidoService = inject(PartidoService);
 

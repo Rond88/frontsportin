@@ -1,11 +1,16 @@
 <div class="container py-3">
-  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border rounded bg-light p-2 mb-3">
+  <div
+    class="d-flex flex-wrap align-items-center justify-content-between gap-2 border rounded bg-light p-2 mb-3"
+  >
     <div>
       <div class="text-uppercase small text-muted fw-semibold">Partidos</div>
       <div class="fw-bold">Detalle de partido</div>
       <div class="text-muted small">Panel administrativo</div>
     </div>
-    <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2" routerLink="/partido">
+    <a
+      class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2"
+      routerLink="/partido"
+    >
       <i class="bi bi-arrow-left"></i>
       Volver
     </a>
@@ -77,7 +82,10 @@
               <div class="col-5 text-muted small text-uppercase">Equipo</div>
               <div class="col-7 fw-semibold small">
                 @if (oPartido()?.liga?.equipo?.nombre) {
-                  <a class="text-decoration-none" [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]">
+                  <a
+                    class="text-decoration-none"
+                    [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]"
+                  >
                     {{ oPartido()?.liga?.equipo?.nombre }} ({{ oPartido()?.liga?.equipo?.id }})
                   </a>
                 } @else {
@@ -106,7 +114,10 @@
                 <div class="border rounded p-2 bg-white">
                   <div class="text-muted small text-uppercase">Partidos Liga</div>
                   <div class="fw-bold">
-                    <a class="text-decoration-none" [routerLink]="['/partido/liga', oPartido()?.liga?.id]">
+                    <a
+                      class="text-decoration-none"
+                      [routerLink]="['/partido/liga', oPartido()?.liga?.id]"
+                    >
                       {{ oPartido()?.liga?.partidos || 0 }}
                     </a>
                   </div>
@@ -127,7 +138,10 @@
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Nombre Liga</div>
                     <div class="fw-semibold">
-                      <a class="text-decoration-none" [routerLink]="['/liga/view', oPartido()?.liga?.id]">
+                      <a
+                        class="text-decoration-none"
+                        [routerLink]="['/liga/view', oPartido()?.liga?.id]"
+                      >
                         {{ oPartido()?.liga?.nombre }} ({{ oPartido()?.liga?.id }})
                       </a>
                     </div>
@@ -146,8 +160,13 @@
                     <div class="text-muted small text-uppercase">Equipo Liga</div>
                     <div class="fw-semibold">
                       @if (oPartido()?.liga?.equipo?.nombre) {
-                        <a class="text-decoration-none" [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]">
-                          {{ oPartido()?.liga?.equipo?.nombre }} ({{ oPartido()?.liga?.equipo?.id }})
+                        <a
+                          class="text-decoration-none"
+                          [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]"
+                        >
+                          {{ oPartido()?.liga?.equipo?.nombre }} ({{
+                            oPartido()?.liga?.equipo?.id
+                          }})
                         </a>
                       } @else {
                         Sin equipo
@@ -173,7 +192,10 @@
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Nombre Equipo</div>
                     <div class="fw-semibold">
-                      <a class="text-decoration-none" [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]">
+                      <a
+                        class="text-decoration-none"
+                        [routerLink]="['/equipo/view', oPartido()?.liga?.equipo?.id]"
+                      >
                         {{ oPartido()?.liga?.equipo?.nombre }} ({{ oPartido()?.liga?.equipo?.id }})
                       </a>
                     </div>
@@ -184,8 +206,16 @@
                     <div class="text-muted small text-uppercase">Categoría</div>
                     <div class="fw-semibold">
                       @if (oPartido()?.liga?.equipo?.categoria?.nombre) {
-                        <a class="text-decoration-none" [routerLink]="['/categoria/view', oPartido()?.liga?.equipo?.categoria?.id]">
-                          {{ oPartido()?.liga?.equipo?.categoria?.nombre }} ({{ oPartido()?.liga?.equipo?.categoria?.id }})
+                        <a
+                          class="text-decoration-none"
+                          [routerLink]="[
+                            '/categoria/view',
+                            oPartido()?.liga?.equipo?.categoria?.id,
+                          ]"
+                        >
+                          {{ oPartido()?.liga?.equipo?.categoria?.nombre }} ({{
+                            oPartido()?.liga?.equipo?.categoria?.id
+                          }})
                         </a>
                       } @else {
                         —
@@ -198,8 +228,13 @@
                     <div class="text-muted small text-uppercase">Entrenador</div>
                     <div class="fw-semibold">
                       @if (oPartido()?.liga?.equipo?.entrenador?.nombre) {
-                        <a class="text-decoration-none" [routerLink]="['/usuario/view', oPartido()?.liga?.equipo?.entrenador?.id]">
-                          {{ oPartido()?.liga?.equipo?.entrenador?.nombre }} ({{ oPartido()?.liga?.equipo?.entrenador?.id }})
+                        <a
+                          class="text-decoration-none"
+                          [routerLink]="['/usuario/view', oPartido()?.liga?.equipo?.entrenador?.id]"
+                        >
+                          {{ oPartido()?.liga?.equipo?.entrenador?.nombre }} ({{
+                            oPartido()?.liga?.equipo?.entrenador?.id
+                          }})
                         </a>
                       } @else {
                         —
@@ -211,7 +246,10 @@
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Jugadores</div>
                     <div class="fw-semibold">
-                      <a class="text-decoration-none" [routerLink]="['/jugador/equipo', oPartido()?.liga?.equipo?.id]">
+                      <a
+                        class="text-decoration-none"
+                        [routerLink]="['/jugador/equipo', oPartido()?.liga?.equipo?.id]"
+                      >
                         {{ oPartido()?.liga?.equipo?.jugadores || 0 }}
                       </a>
                     </div>
@@ -221,7 +259,10 @@
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Cuotas</div>
                     <div class="fw-semibold">
-                      <a class="text-decoration-none" [routerLink]="['/cuota/equipo', oPartido()?.liga?.equipo?.id]">
+                      <a
+                        class="text-decoration-none"
+                        [routerLink]="['/cuota/equipo', oPartido()?.liga?.equipo?.id]"
+                      >
                         {{ oPartido()?.liga?.equipo?.cuotas || 0 }}
                       </a>
                     </div>
@@ -231,7 +272,10 @@
                   <div class="border rounded p-2 bg-white">
                     <div class="text-muted small text-uppercase">Ligas</div>
                     <div class="fw-semibold">
-                      <a class="text-decoration-none" [routerLink]="['/liga/equipo', oPartido()?.liga?.equipo?.id]">
+                      <a
+                        class="text-decoration-none"
+                        [routerLink]="['/liga/equipo', oPartido()?.liga?.equipo?.id]"
+                      >
                         {{ oPartido()?.liga?.equipo?.ligas || 0 }}
                       </a>
                     </div>
