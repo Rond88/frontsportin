@@ -6,5 +6,8 @@ export interface IPartido {
     liga: ILiga;
     local: boolean;
     resultado: string;
+    // Coordenadas para geolocalización (opcional)
+    latitud?: number | null;
+    longitud?: number | null;
 }
 

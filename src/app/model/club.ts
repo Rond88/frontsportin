@@ -9,4 +9,7 @@ export interface IClub {
     noticias: number;
     tipoarticulos: number;
     usuarios: number;
+    // Coordenadas para geolocalización (opcional)
+    latitud?: number | null;
+    longitud?: number | null;
 }

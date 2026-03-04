@@ -20,4 +20,13 @@
     title="Eliminar"
     ><i class="bi bi-trash" aria-hidden="true"></i
   ></a>
+  @if (showMapa) {
+    <a
+      class="btn btn-info btn-sm"
+      [routerLink]="['/', strEntity, 'mapa', id]"
+      role="button"
+      title="Ver en mapa"
+      ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i
+    ></a>
+  }
 </div>

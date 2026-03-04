@@ -76,6 +76,33 @@
 						/>
 					</div>
 
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							<label for="latitud" class="form-label">Latitud</label>
+							<input
+								type="number"
+								step="any"
+								class="form-control"
+								id="latitud"
+								formControlName="latitud"
+								placeholder="Ej: 40.4168"
+							/>
+							<small class="text-muted">Coordenada de latitud para el mapa</small>
+						</div>
+						<div class="col-md-6 mb-4">
+							<label for="longitud" class="form-label">Longitud</label>
+							<input
+								type="number"
+								step="any"
+								class="form-control"
+								id="longitud"
+								formControlName="longitud"
+								placeholder="Ej: -3.7038"
+							/>
+							<small class="text-muted">Coordenada de longitud para el mapa</small>
+						</div>
+					</div>
+
 					<div class="d-flex justify-content-between align-items-center mt-4">
 						<button type="button" class="btn btn-outline-secondary" (click)="onCancel()">
 							<i class="bi bi-arrow-left me-2"></i>Cancelar

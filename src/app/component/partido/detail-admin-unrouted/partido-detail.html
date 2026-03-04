@@ -244,6 +244,21 @@
           </div>
         </div>
       </div>
+
+      @if (oPartido()?.latitud && oPartido()?.longitud) {
+        <div class="col-12">
+          <div class="card border">
+            <div class="card-header bg-light small text-uppercase fw-semibold">Ubicación</div>
+            <div class="card-body p-2">
+              <app-mapa
+                [lat]="oPartido()!.latitud!"
+                [lng]="oPartido()!.longitud!"
+                [titulo]="oPartido()!.rival"
+              ></app-mapa>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   }
 </div>

@@ -1,4 +1,3 @@
-import { I } from '@angular/cdk/keycodes';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -12,6 +11,6 @@ export class BotoneraActionsPlist {
 
   @Input() id: number = 0;
   @Input() strEntity: string = '';
-
+  @Input() showMapa: boolean = false;
 
 }

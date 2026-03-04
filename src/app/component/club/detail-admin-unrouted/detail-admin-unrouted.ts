@@ -1,13 +1,14 @@
-import { Component, inject, input, Input, OnInit, Signal, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, Signal, signal } from '@angular/core';
 import { IClub } from '../../../model/club';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { ClubService } from '../../../service/club';
 import { DatetimePipe } from '../../../pipe/datetime-pipe';
+import { MapaComponent } from '../../shared/mapa/mapa';
 
 @Component({
   selector: 'app-detail-admin-unrouted',
-  imports: [DatetimePipe, RouterLink],
+  imports: [DatetimePipe, RouterLink, MapaComponent],
   templateUrl: './detail-admin-unrouted.html',
   styleUrl: './detail-admin-unrouted.css',
 })

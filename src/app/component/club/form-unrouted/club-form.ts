@@ -42,6 +42,8 @@ export class ClubFormUnrouted implements OnInit {
       telefono: [''],
       fechaAlta: [new Date().toISOString().split('T')[0], Validators.required],
       imagen: [null],
+      latitud: [null],
+      longitud: [null],
     });
   }
 
@@ -56,6 +58,8 @@ export class ClubFormUnrouted implements OnInit {
       telefono: this.club.telefono,
       fechaAlta: fechaAltaInput,
       imagen: this.club.imagen || null,
+      latitud: this.club.latitud || null,
+      longitud: this.club.longitud || null,
     });
   }
 
@@ -89,6 +93,8 @@ export class ClubFormUnrouted implements OnInit {
       telefono: this.clubForm.value.telefono,
       fechaAlta: fechaConHora,
       imagen: this.clubForm.value.imagen || null,
+      latitud: this.clubForm.value.latitud || null,
+      longitud: this.clubForm.value.longitud || null,
       ...(this.isEditMode
         ? {}
         : {

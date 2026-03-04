@@ -61,6 +61,8 @@ export class PartidoFormAdminUnrouted implements OnInit {
       id_liga: [null, Validators.required],
       local: [null, [Validators.required, Validators.min(0), Validators.max(1)]],
       resultado: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      latitud: [null],
+      longitud: [null],
     });
 
     this.partidoForm.get('id_liga')?.valueChanges.subscribe((id) => {
@@ -80,6 +82,8 @@ export class PartidoFormAdminUnrouted implements OnInit {
       id_liga: partido.liga?.id,
       local: partido.local !== undefined && partido.local !== null ? Number(partido.local) : null,
       resultado: partido.resultado,
+      latitud: partido.latitud || null,
+      longitud: partido.longitud || null,
     });
     if (partido.liga) {
       this.syncLiga(partido.liga.id);
@@ -149,6 +153,8 @@ export class PartidoFormAdminUnrouted implements OnInit {
       liga: { id: this.partidoForm.value.id_liga },
       local: Number(this.partidoForm.value.local) === 1,
       resultado: this.partidoForm.value.resultado,
+      latitud: this.partidoForm.value.latitud || null,
+      longitud: this.partidoForm.value.longitud || null,
     };
 
     if (this.mode === 'edit' && this.partido?.id) {

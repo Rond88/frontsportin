@@ -99,6 +99,8 @@ import { CompraEditAdminRouted } from './component/compra/edit-admin-routed/comp
 import { CompraNewAdminRouted } from './component/compra/new-admin-routed/compra-new';
 import { PartidoEditAdminRouted } from './component/partido/edit-admin-routed/partido-edit';
 import { TemporadaNewAdminRouted } from './component/temporada/new-admin-routed/temporada-new';
+import { ClubMapaAdminRouted } from './component/club/mapa-admin-routed/club-mapa';
+import { PartidoMapaAdminRouted } from './component/partido/mapa-admin-routed/partido-mapa';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -138,6 +140,7 @@ export const routes: Routes = [
   { path: 'partido/liga/:id_liga', component: PartidoPlistAdminRouted},
   { path: 'partido/new', component: PartidoNewAdminRouted },
   { path: 'partido/view/:id', component: PartidoViewAdminRouted},
+  { path: 'partido/mapa/:id', component: PartidoMapaAdminRouted },
   { path: 'partido/edit/:id', component: PartidoEditAdminRouted },
   { path: 'partido/delete/:id', component: PartidoDeleteAdminRouted },
   { path: 'factura', component: FacturaPlistAdminRouted },
@@ -180,6 +183,7 @@ export const routes: Routes = [
   { path: 'club', component: ClubPlistAdminRouted },
   { path: 'club/new', component: ClubNewAdminRouted },
   { path: 'club/view/:id', component: ClubViewAdminRouted },
+  { path: 'club/mapa/:id', component: ClubMapaAdminRouted },
   { path: 'club/delete/:id', component: ClubDeleteAdminRouted },
   { path: 'club/edit/:id', component: ClubEditAdminRouted },
   { path: 'cuota', component: CuotaPlistAdminRouted },

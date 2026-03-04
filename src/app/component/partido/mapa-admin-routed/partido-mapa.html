@@ -1,0 +1,111 @@
+<div class="container py-3">
+  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border rounded bg-light p-2 mb-3">
+    <div>
+      <div class="text-uppercase small text-muted fw-semibold">Partidos</div>
+      <div class="fw-bold">Ubicación del partido</div>
+      <div class="text-muted small">vs {{ oPartido()?.rival }}</div>
+    </div>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2" [routerLink]="['/partido/view', id_partido()]">
+        <i class="bi bi-arrow-left"></i>
+        Volver al detalle
+      </a>
+      <a class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2" routerLink="/partido">
+        <i class="bi bi-list"></i>
+        Lista de partidos
+      </a>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center py-3">
+          <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+          <p class="text-muted mt-2 mb-0">Cargando mapa...</p>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (error()) {
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <span>{{ error() }}</span>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (!loading() && !error() && oPartido()) {
+    <div class="row g-3">
+      <div class="col-12">
+        <div class="card border">
+          <div class="card-header bg-light d-flex justify-content-between align-items-center">
+            <span class="small text-uppercase fw-semibold">
+              <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+              Mapa de ubicación
+            </span>
+            <span class="badge bg-primary">vs {{ oPartido()?.rival }}</span>
+          </div>
+          <div class="card-body p-0">
+            @if (oPartido()?.latitud && oPartido()?.longitud) {
+              <app-mapa
+                [lat]="oPartido()!.latitud!"
+                [lng]="oPartido()!.longitud!"
+                [titulo]="'Partido vs ' + oPartido()!.rival"
+                height="500px"
+              ></app-mapa>
+            } @else {
+              <div class="text-center py-5 text-muted">
+                <i class="bi bi-geo-alt fs-1"></i>
+                <p class="mt-2 mb-0">Este partido no tiene coordenadas de ubicación configuradas.</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      @if (oPartido()?.latitud && oPartido()?.longitud) {
+        <div class="col-md-6">
+          <div class="card border">
+            <div class="card-header bg-light small text-uppercase fw-semibold">Coordenadas</div>
+            <div class="card-body p-2">
+              <div class="row g-1">
+                <div class="col-4 text-muted small">Latitud</div>
+                <div class="col-8 fw-semibold small">{{ oPartido()?.latitud }}</div>
+                <div class="col-4 text-muted small">Longitud</div>
+                <div class="col-8 fw-semibold small">{{ oPartido()?.longitud }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border">
+            <div class="card-header bg-light small text-uppercase fw-semibold">Información del partido</div>
+            <div class="card-body p-2">
+              <div class="row g-1">
+                <div class="col-4 text-muted small">Rival</div>
+                <div class="col-8 fw-semibold small">{{ oPartido()?.rival }}</div>
+                <div class="col-4 text-muted small">Condición</div>
+                <div class="col-8 fw-semibold small">
+                  @if (oPartido()?.local) {
+                    <span class="badge bg-success-subtle text-success">Local</span>
+                  } @else {
+                    <span class="badge bg-warning-subtle text-warning">Visitante</span>
+                  }
+                </div>
+                <div class="col-4 text-muted small">Resultado</div>
+                <div class="col-8 fw-semibold small">{{ oPartido()?.resultado || 'Pendiente' }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

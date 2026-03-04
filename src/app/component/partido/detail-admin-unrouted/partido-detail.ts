@@ -4,11 +4,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PartidoService } from '../../../service/partido';
 import { IPartido } from '../../../model/partido';
+import { MapaComponent } from '../../shared/mapa/mapa';
 
 
 @Component({
   selector: 'app-partido-detail-unrouted',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, MapaComponent],
   templateUrl: './partido-detail.html',
   styleUrl: './partido-detail.css',
 })
